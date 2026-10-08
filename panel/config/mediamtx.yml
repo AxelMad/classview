@@ -1,0 +1,37 @@
+# ClassView — конфиг MediaMTX на панели.
+# Пароль потоков ДОЛЖЕН совпадать с "паролем потоков" в GUI сервера.
+logLevel: warn
+logDestinations: [stdout]
+
+# Слушаем только RTSP, только TCP (иначе UDP-сессии зависают и индикатор не гаснет).
+rtsp: yes
+protocols: [tcp]
+rtspAddress: :8554
+rtmp: no
+hls: no
+webrtc: no
+srt: no
+api: yes
+apiAddress: 127.0.0.1:9997   # локально — для индикатора
+
+# Доступ: сервер читает по паролю; публикация и API — только с самой панели.
+authInternalUsers:
+  - user: any
+    ips: ['127.0.0.1/32', '::1/128']
+    permissions:
+      - {action: publish}
+      - {action: read}
+      - {action: api}
+  - user: __STREAM_USER__
+    pass: __STREAM_PASS__
+    ips: []
+    permissions:
+      - {action: read}
+
+paths:
+  # Просмотр: камера включается по запросу и гаснет через 3 с после ухода последнего зрителя.
+  cam:
+    runOnDemand: /opt/classview/bin/classview-capture.sh cam
+    runOnDemandRestart: yes
+    runOnDemandStartTimeout: 12s
+    runOnDemandCloseAfter: 3s

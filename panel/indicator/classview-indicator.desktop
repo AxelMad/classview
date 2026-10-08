@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=ClassView Indicator
+Exec=/opt/classview/venv/bin/python /opt/classview/indicator/classview-indicator.py
+Icon=camera-web
+X-GNOME-Autostart-enabled=true
+NoDisplay=true
+Terminal=false

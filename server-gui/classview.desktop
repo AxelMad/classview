@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=ClassView
+Name[ru]=ClassView — камеры панелей
+Comment[ru]=Просмотр и запись камеры и микрофона интерактивных панелей
+Exec=/usr/local/bin/classview
+Icon=camera-web
+Terminal=false
+Categories=Network;AudioVideo;

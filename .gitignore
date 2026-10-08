@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Локальные конфиги и секреты (НЕ коммитить!)
+*.local.yml
+config.local.json
+*token*
+*secret*
+panels-*.csv
+!panels.example.csv
+
+# Собранные бинарники MediaMTX (качаются установщиком)
+panel/bin/mediamtx
+
+# Сборки/архивы
+*.tar.gz
+*.rpm
+dist/
+build/
+
+# Записи и данные приложения
+Записи/
+recordings/
+*.db
+*.sqlite
+
+# ОС/редакторы
+.DS_Store
+*.swp
+.idea/
+.vscode/

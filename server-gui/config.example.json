@@ -1,0 +1,13 @@
+{
+  "school_id": "1747",
+  "rtsp_port": 8554,
+  "rtsp_user": "viewer",
+  "rtsp_password": "СМЕНИТЕ_МЕНЯ",
+  "view_path": "cam",
+  "record_path": "cam",
+  "recordings_dir": "~/Записи/classview",
+  "directory_url": "http://127.0.0.1:8781",
+  "directory_token": "ТОКЕН_СПРАВОЧНИКА",
+  "retention_days": 30,
+  "status_interval_sec": 30
+}

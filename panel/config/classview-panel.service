@@ -1,0 +1,23 @@
+[Unit]
+Description=ClassView panel — MediaMTX (камера/микрофон по запросу)
+After=network-online.target sound.target
+Wants=network-online.target
+
+[Service]
+# ffmpeg запускается от пользователя сессии через runuser (см. classview-capture.sh),
+# поэтому NoNewPrivileges нельзя, а домашка учителя должна быть видна.
+Type=simple
+ExecStart=/opt/classview/bin/mediamtx /opt/classview/config/mediamtx.yml
+Restart=always
+RestartSec=5
+# Доступ к камере, микрофону и видео
+SupplementaryGroups=video audio
+# Минимальные привилегии
+ProtectSystem=no
+ReadWritePaths=/opt/classview
+# доступ к Pulse-сокетам сессий
+BindReadOnlyPaths=/run/user
+ProtectHome=no
+
+[Install]
+WantedBy=multi-user.target
